@@ -1,0 +1,4 @@
+name: plugins
+version: '1.0-SNAPSHOT'
+main: org.plugin.com
+api-version: '1.21'
