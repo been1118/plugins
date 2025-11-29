@@ -6,3 +6,6 @@ commands:
   dudumtack :
     description: test
     usage: Oh no...
+  돈 :
+    description: 돈을 보여준다
+    usage: 잘못 사용함

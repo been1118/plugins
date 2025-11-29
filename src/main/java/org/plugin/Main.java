@@ -6,18 +6,21 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 
 public final class Main extends JavaPlugin {
     Gamble gamble = new Gamble();
-    private static int money;
+    Money money = new Money(this);
 
     @Override
     public void onEnable() {
         // Plugin startup logic
        Gamble plugin = new Gamble();
+
        Bukkit.getPluginManager().registerEvents(new EventManager(), this);
         getLogger().info("플러그인이 활성화되었습니다.");
-
+        Objects.requireNonNull(this.getCommand("돈")).setExecutor(new UseCommand());
        }
 
     @Override
@@ -37,4 +40,9 @@ public final class Main extends JavaPlugin {
         }
         return true;
     }
+    public Money getMoneyInstance(){
+        return money;
+    }
+
+
 }

@@ -5,11 +5,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
 
 public class EventManager implements Listener {
 
+    private Main plugin;
 
 
     @EventHandler
@@ -28,6 +30,16 @@ public class EventManager implements Listener {
             p.sendMessage("이벤트 감지됨");
             p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getAmount() - 1);
         }
+    }
+
+
+    @EventHandler
+    public void playerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        Money money = plugin.getMoneyInstance();
+        money.makePlayerDataOnJoin(player);
+        player.sendMessage("안녕");
+
     }
 
 }
