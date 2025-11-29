@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Gamble {
     private ItemStack item = new ItemStack(Material.PAPER); //ItemStack(Material.PAPER);
-    NamespacedKey gambletiketKey = new NamespacedKey("gamble", "gamebletiket");
+    public static NamespacedKey gambletiketKey = new NamespacedKey("gamble", "gamebletiket");
     List<String> lore = new ArrayList<String>();
 
 
@@ -32,20 +32,7 @@ public class Gamble {
 
     @EventHandler
     public void onUseTicket(PlayerInteractEvent event) {
-    Player p = event.getPlayer();
-    Action action = event.getAction();
-    ItemStack item = event.getItem();
-        p.sendMessage(p.getName() + "이 감지됨");
-    if (item == null) {
-        p.sendMessage("item이 null임");
-        return;
-    }
-        PersistentDataContainer pdc = item.getItemMeta().getPersistentDataContainer();
 
-    if (action.equals(Action.RIGHT_CLICK_AIR) &&  pdc.has(gambletiketKey)) {
-        p.sendMessage("이벤트 감지됨");
-        p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getAmount() - 1);
-    }
     }
 
 

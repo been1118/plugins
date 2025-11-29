@@ -15,7 +15,7 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
        Gamble plugin = new Gamble();
-       Bukkit.getPluginManager().registerEvents(gamble, plugin);
+       Bukkit.getPluginManager().registerEvents(new EventManager(), this);
         getLogger().info("플러그인이 활성화되었습니다.");
 
        }
