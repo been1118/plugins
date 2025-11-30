@@ -33,15 +33,15 @@ public class Money {
     }
 
     public static void saveMoneyData() {
-        fileUtil.upLoadYamlToMap(fileUtil.loadYaml("money.yml"), playerMoneyMap, Integer.class);
+        fileUtil.upLoadMapToYaml(fileUtil.loadYaml("money.yml"), playerMoneyMap, Integer.class);
     }
 
-    public static void giveMoney(String playername, int money) {
+    public static void addMoney(String playername, int money) {
         playerMoneyMap.put(playername, getMoney(playername) + money);
     }
 
-    public static void takeMoney(String playername, int money) {
-        playerMoneyMap.put(playername, getMoney(playername) - money);
+    public static void setMoney(String playername, int money) {
+        playerMoneyMap.put(playername, money);
     }
 
 }
