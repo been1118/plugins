@@ -8,8 +8,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
+import org.plugin.domain.gamble.Gamble;
 
-import static org.plugin.Money.getMoney;
+import static org.plugin.domain.money.Money.getMoney;
 
 public class EventManager implements Listener {
 

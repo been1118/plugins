@@ -1,17 +1,13 @@
 package org.plugin;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
+import org.plugin.domain.money.Money;
+import org.plugin.util.Scheduler;
 
 import java.util.Objects;
 
-import static org.plugin.Money.saveMoneyData;
-import static org.plugin.Money.upLoadMoneyData;
+import static org.plugin.domain.money.Money.upLoadMoneyData;
 
 
 public final class Main extends JavaPlugin {

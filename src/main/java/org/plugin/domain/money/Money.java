@@ -1,7 +1,8 @@
-package org.plugin;
+package org.plugin.domain.money;
 
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.plugin.util.FileUtil;
 
 import java.util.HashMap;
 import java.util.Map;

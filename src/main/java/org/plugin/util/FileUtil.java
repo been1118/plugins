@@ -1,7 +1,8 @@
-package org.plugin;
+package org.plugin.util;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.plugin.Main;
 
 import java.io.File;
 import java.util.Map;
