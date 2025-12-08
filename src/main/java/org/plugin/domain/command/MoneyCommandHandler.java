@@ -94,8 +94,8 @@ public class MoneyCommandHandler {
     }
 
     private static void opCheck(CommandSender sender) throws IllegalAccessException {
-        if (!sender.isOp()) sender.sendMessage("관리자 전용 명령어입니다.");
-        throw new IllegalAccessException("관리자 전용 명령어 사용 시도: " + sender.getName());
+        if (!sender.isOp()){ sender.sendMessage("관리자 전용 명령어입니다.");
+        throw new IllegalAccessException("관리자 전용 명령어 사용 시도: " + sender.getName());}
     }
 
     private static void sendHelp(CommandSender sender) {
