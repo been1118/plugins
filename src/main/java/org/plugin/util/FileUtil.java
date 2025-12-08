@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.plugin.Main;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 public class FileUtil {
@@ -12,7 +13,7 @@ public class FileUtil {
 
     public FileConfiguration loadYaml(String path) {
         File file = new File(plugin.getDataFolder(), path);
-        if (!file.exists()) plugin.saveResource(path, false);
+        if (!file.exists()) plugin.saveResource(path, true);
 
         return YamlConfiguration.loadConfiguration(file);
     }
@@ -26,11 +27,14 @@ public class FileUtil {
         }
     }
 
-    public <T> void upLoadMapToYaml(FileConfiguration fileData, Map<String, T> map, Class<T> type) {
+    public <T> void upLoadMapToYaml(FileConfiguration fileData, Map<String, T> map, Class<T> type, String fileName) {
         map.forEach((key, value) -> {
             if (type.isInstance(value)) {
                 fileData.set(key, value);
             }
         });
+        try {
+            fileData.save(new File(plugin.getDataFolder(), fileName));
+        } catch (IOException e) {}
     }
 }

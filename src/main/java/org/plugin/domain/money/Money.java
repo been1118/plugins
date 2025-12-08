@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.plugin.util.FileUtil;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ public class Money {
 
     private static final Map<String, Integer> playerMoneyMap = new HashMap<>();
     private static final FileUtil fileUtil = new FileUtil();
+    private static final String YAML_FILE_NAME = "money.yml";
 
     private Money() {}
 
@@ -30,11 +32,11 @@ public class Money {
     }
 
     public static void upLoadMoneyData() {
-        fileUtil.upLoadYamlToMap(fileUtil.loadYaml("money.yml"), playerMoneyMap, Integer.class);
+        fileUtil.upLoadYamlToMap(fileUtil.loadYaml(YAML_FILE_NAME), playerMoneyMap, Integer.class);
     }
 
     public static void saveMoneyData() {
-        fileUtil.upLoadMapToYaml(fileUtil.loadYaml("money.yml"), playerMoneyMap, Integer.class);
+        fileUtil.upLoadMapToYaml(fileUtil.loadYaml(YAML_FILE_NAME), playerMoneyMap, Integer.class, YAML_FILE_NAME);
     }
 
     public static void addMoney(String playername, int money) {
